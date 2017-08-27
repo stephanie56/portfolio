@@ -4,7 +4,7 @@
   "description": "A portfolio site for Impact! Media built with Pug.",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack -d --watch",
+    "dev": "webpack-dev-server",
     "prod": "webpack -p"
   },
   "keywords": [

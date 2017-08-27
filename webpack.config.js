@@ -2,6 +2,7 @@ const path = require('path');
 
 // webpack plugins
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: './src/app.js',
@@ -11,6 +12,10 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.scss$/,
+        use: ['css-loader', 'sass-loader'],
+      },
       {
         test: /\.pug$/,
         use: ['raw-loader', 'pug-html-loader']
@@ -30,5 +35,9 @@ module.exports = {
       hash: true,
       template: './src/index.pug'
     }),
+    new ExtractTextPlugin({
+      filename: 'app.css',
+      allChunks: true
+    })
   ]
 }
